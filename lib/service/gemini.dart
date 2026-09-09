@@ -1,14 +1,19 @@
 import 'dart:convert';
 
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 import 'package:http/http.dart' as http;
 
 class GeminiAPI {
-  GeminiAPI({String? apiKey})
-    : _apiKey =
-          apiKey ??
-          const String.fromEnvironment('GEMINI_API_KEY', defaultValue: '');
-
+  final apiUrl = dotenv.get('API_URL');
+  final retries = dotenv.getInt('MAX_RETRIES', fallback: 1);
+  final debug = dotenv.getBool('DEBUG', fallback: false);
   final String _apiKey;
+
+  GeminiAPI({String? apiKey})
+    : _apiKey = apiKey ?? const String.fromEnvironment('api-key');
+
+  
 
   Future<String> sendRequest(String prompt) async {
     if (_apiKey.isEmpty) {
@@ -18,7 +23,7 @@ class GeminiAPI {
     }
 
     final uri = Uri.parse(
-      'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=$_apiKey',
+      'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key=$_apiKey',
     );
 
     final response = await http.post(

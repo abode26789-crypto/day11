@@ -31,15 +31,15 @@ class _DoctorScreenState extends State<DoctorScreen> {
           },
         ),
         scrollToBottomOptions: const ScrollToBottomOptions(),
-        messageOptions: MessageOptions(
-          avatarBuilder: (p0, onPressAvatar, onLongPressAvatar) {
-            return Image.network(
-              'https://media.discordapp.net/attachments/1544648774100459611/1546216449863843991/1280px-Google_Gemini_icon_2025.svg.png?ex=6a9ef9c8&is=6a9da848&hm=01b45075aedd015085ef761058894a82b4384fbbd4a8e705e198fbc997c9a8b0&=&format=webp&quality=lossless&width=700&height=700',
-              height: 30,
-              width: 30,
-            );
-          },
-        ),
+        // messageOptions: MessageOptions(
+        //   avatarBuilder: (p0, onPressAvatar, onLongPressAvatar) {
+        //     return Image.network(
+        //       'https://media.discordapp.net/attachments/1544648774100459611/1546216449863843991/1280px-Google_Gemini_icon_2025.svg.png?ex=6a9ef9c8&is=6a9da848&hm=01b45075aedd015085ef761058894a82b4384fbbd4a8e705e198fbc997c9a8b0&=&format=webp&quality=lossless&width=700&height=700',
+        //       height: 30,
+        //       width: 30,
+        //     );
+        //   },
+        // ),
         currentUser: user1,
         onSend: (message) async {
           messagesList.insert(0, message);
