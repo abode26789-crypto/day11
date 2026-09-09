@@ -11,7 +11,7 @@ class GeminiAPI {
   final String _apiKey;
 
   GeminiAPI({String? apiKey})
-    : _apiKey = apiKey ?? const String.fromEnvironment('api-key');
+    : _apiKey = apiKey ?? dotenv.get('api-key');
 
   
 

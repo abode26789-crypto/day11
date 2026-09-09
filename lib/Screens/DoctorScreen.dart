@@ -57,14 +57,14 @@ class _DoctorScreenState extends State<DoctorScreen> {
               ),
             );
             setState(() {});
-          } catch (_) {
+          } catch (e) {
             if (!mounted) return;
             messagesList.insert(
               0,
               ChatMessage(
                 user: user2,
                 createdAt: DateTime.now(),
-                text: 'I could not reach the AI service right now.',
+                text: e.toString(),
               ),
             );
             setState(() {});
